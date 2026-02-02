@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>fnOS漏洞检测</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <span class="title">fnOS漏洞检测器</span>
+      <span class="badge">v1.5</span>
+    </div>
+
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">目标站点</span>
+        <span class="info-value" id="origin">-</span>
+      </div>
+    </div>
+
+    <div class="result-card unknown" id="resultCard">
+      <div class="result-header">
+        <span class="result-icon" id="resultIcon">⏳</span>
+        <span class="result-status" id="resultStatus">等待检测...</span>
+      </div>
+      <div class="result-body">
+        <div class="result-meta" id="resultMeta"></div>
+        <div id="fileListContainer"></div>
+        <div class="preview-box" id="previewBox" style="display:none;"></div>
+      </div>
+    </div>
+
+    <!-- 下载控制栏 -->
+    <div class="download-bar" id="downloadBar" style="display:none;">
+      <div class="download-select">
+        <label class="checkbox-wrap">
+          <input type="checkbox" id="selectAll">
+          <span class="select-label">全选</span>
+        </label>
+        <span class="selected-count" id="selectedCount">已选 0 个文件</span>
+      </div>
+      <div class="download-btns">
+        <button id="btnDownloadZip" class="btn btn-download" disabled title="打包下载">
+          <span>📦</span> ZIP
+        </button>
+        <button id="btnDownload" class="btn btn-download-alt" disabled title="逐个下载">
+          <span>⬇️</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 下载进度 -->
+    <div class="download-progress" id="downloadProgress" style="display:none;">
+      <div class="progress-text" id="progressText">准备中...</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <div class="actions">
+      <button id="btnScan" class="btn btn-primary"><span>🔍</span> 扫描</button>
+      <button id="btnRefresh" class="btn btn-secondary"><span>🔄</span></button>
+      <button id="btnCopy" class="btn btn-secondary"><span>📋</span></button>
+      <button id="btnClear" class="btn btn-danger"><span>🗑️</span></button>
+    </div>
+  </div>
+  <script src="jszip.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
